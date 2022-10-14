@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>let</title>
+</head>
+<body>
+    <script>
+        //
+        let a;
+        let b,c,d;
+        let e = 100;
+        let f=521,g="iloveyou",h=[];
+        //1.变量不能重复声明
+        let star = "hxx"
+        // let star = "sss"
+        //2 .块儿级作用域，全局，函数，eval
+        // if else while for
+        // {
+        //     let girl="yym"
+        // }
+        // console.log(girl)
+        //3.不存在变量提前声明
+        // console.log(song)
+        // let song="星辰大海"
+        //4.不影响作用域链
+        {
+            let school = "cbsy"
+            function fn(){
+                console.log(school)
+            }
+            fn()
+        }
+    </script>
+</body>
+</html>
