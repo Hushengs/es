@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>symbol的内置属性</title>
+</head>
+<body>
+    <script>
+        //1.hasInstance:当其它对象使用instanceof运算符，判断是否为该对象的实列时，会调用这个方法
+        class Person{
+            static [Symbol.hasInstance](param){
+                console.log(param)
+                console.log("我被用来检测类型了")
+                // return true
+            }
+        }
+
+        let o = {};
+        console.log(o instanceof Person)
+
+        //2.isConcatSpreadable:对象的isConcatSpreadables属性等于的是一个布尔值，表示该对象用于Array.prototype.concat()时，是否可以展开
+        const arr = [1,2,3];
+        const arr2 = [4,5,6];
+        console.log(arr.concat(arr2))
+        arr2[Symbol.isConcatSpreadable] = false;
+        console.log(arr.concat(arr2));
+        arr2[Symbol.isConcatSpreadable] = true;
+        console.log(arr.concat(arr2));
+
+        //3.还有很多其它属性，不做举例
+    </script>
+</body>
+</html>

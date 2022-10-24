@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>扩展运算符&&应用</title>
+</head>
+<body>
+    <div class="container">
+        <h2 class="page-header">点击切换颜色</h2>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+    </div>
+    <script>
+        const hzw = ["海贼王","娜美","路飞","索罗","香吉士"]
+        //rest参数
+        function data(){
+            console.log(arguments)
+        }
+        data(hzw)
+
+        //扩展运算符将【数组】转换为逗号分隔的【参数序列】
+        function data1(){
+            console.log(arguments)
+        }
+        data1(...hzw)
+
+        //1.数组的合并
+        const kuaizi = ['王太利','肖央']
+        const fenghuang = ['曾毅','玲花']
+        const zuixuanxiaopingguo = [...kuaizi,...fenghuang]
+        console.log(zuixuanxiaopingguo)
+
+        //2.数组的克隆
+        const sanzhihua = ['E','G','M']
+        const sanyecao = [...sanzhihua]
+        console.log(sanyecao)
+
+        //3.将伪数组转为真正的数组
+        const divs = document.querySelectorAll('div')
+        const divArr = [...divs]
+        console.log(divArr)
+    </script>
+</body>
+</html>
