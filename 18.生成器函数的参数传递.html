@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生成器函数的参数传递</title>
+</head>
+<body>
+    <script>
+        //生成器其实就是一个特殊的函数
+        //异步编程 纯回调函数 node fs ajax mongodb
+        function* gen(arg){
+            console.log(arg);
+            // yield 理解为函数代码分割符
+            let one = yield '1111';
+            console.log(one);
+            let two = yield '2222';
+            console.log(two);
+            let three = yield '3333';
+            console.log(three);
+            // console.log("hello generator")
+        }
+        let iterator = gen('AAA')
+        console.log(iterator.next());
+        console.log(iterator.next('BBB'));
+        console.log(iterator.next('CCC'));
+        console.log(iterator.next('DDD'));
+    </script>
+</body>
+</html>

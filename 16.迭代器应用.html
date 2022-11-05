@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>迭代器</title>
+</head>
+
+<body>
+    <script>
+        //声明一个数组
+        const banji={
+            name: "终极一班",
+            stus: [
+                'xiaoming',
+                'xiaoning',
+                'xiaotian',
+                'knight'
+            ],
+            [Symbol.iterator]() {
+                let index=0;
+                let _this=this;
+                return {
+                    next: function () {
+                        if(index<_this.stus.length) {
+                            const result={value: _this.stus[index],done: false};
+                            index++;
+                            return result;
+                        } else {
+                            return {value: undefined,done: true};
+                        }
+                    }
+                };
+            }
+        }
+
+        //遍历这个对象
+        // banji.stus.forEach() //不满足面向对象思想
+        for(let v of banji) {
+            console.log(v)
+        }
+    </script>
+</body>
+
+</html>
