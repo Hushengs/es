@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>类的静态成员</title>
+</head>
+
+<body>
+    <script>
+        //es5
+        //手机
+        // function Phone(brand,price) {
+        //     this.brand=brand;
+        //     this.price=price;
+        // }
+
+        // //添加方法
+        // Phone.prototype.call=function () {
+        //     console.log("我可以打电话");
+        // }
+
+        //函数对象属性（静态成员） 不属于实例对象
+        // Phone.size='5.5incun';
+        // Phone.change=function () {
+        //     console.log("我可以改变世界");
+        // }
+
+        // let Huawei=new Phone('华为p50',5999);
+        // console.log(Huawei);
+        // Huawei.call();
+        // console.log(Huawei.size)
+
+        //es6
+        class Phone {
+            //构造方法 名字不能修改
+            constructor(brand,price) {
+                this.brand=brand;
+                this.price=price;
+            }
+
+            static name='手机';
+            static change() {
+                console.log("我可以改变世界");
+            }
+
+            //方法必须使用该方法
+            call() {
+                console.log("我可以打电话")
+            }
+        }
+
+        let onePlus=new Phone('1+',3999);
+        console.log(onePlus);
+        onePlus.call();
+        console.log(onePlus.name);
+        console.log(onePlus.change());
+    </script>
+</body>
+
+</html>
